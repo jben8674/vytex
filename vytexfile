@@ -1,0 +1,9 @@
+async function updateMprOtherDocs(db, crowdsource_id, file_desc) {
+    try{
+        const result = db.any(sqlUpdateMprOtherDocs, {crowdsource_id: crowdsource_id, file_desc: file_desc})
+        return Promise.resolve(result);
+    } catch (err) {
+        logger.error(`updateMprOtherDocs: error: ${err}`);
+        return Promise.reject(err)
+    }
+}
